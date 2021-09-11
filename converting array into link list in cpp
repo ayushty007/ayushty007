@@ -1,0 +1,43 @@
+
+#include<bits/stdc++.h>
+using namespace std ;
+struct node {
+    int data ;
+    struct node *next;
+};
+struct node * head = new node ();
+void insert(int arr[],int n )
+{
+    struct node *ptr;  
+    head->data=arr[0];
+    head->next=ptr;
+    ptr=head;
+    for(int i =1 ;i<n;i++)
+    {
+        struct node *temp= new node();
+        temp->data=arr[i];
+        ptr->next=temp;
+        ptr=temp;
+    }
+    ptr->next=NULL;
+    
+}
+void print(struct node *head )
+{
+   struct node * ptr ;
+   ptr = head ;
+   while(ptr != NULL)
+   {
+       cout<<ptr->data;
+      ptr = ptr->next;
+   }
+}
+int main ()
+{  
+   int arr[6]={1,2,3,4,5,6};
+   int n =6;
+   insert(arr,n);
+  
+  print(head);
+    return 0;
+}
