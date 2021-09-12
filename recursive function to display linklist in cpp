@@ -1,0 +1,12 @@
+// function to display linked list using recursion 
+
+void rprint(struct node *ptr) // taking head node location from main function
+{
+    if (ptr==NULL)
+    {
+        return ; // coming out of the function
+    }
+    cout<<ptr->data<< " "; // print data inside the node 
+    ptr = ptr->next; // pointing to next node 1st and then moving to it location
+    rprint(ptr); // recursive call 
+}
