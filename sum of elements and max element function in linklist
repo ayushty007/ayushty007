@@ -1,0 +1,28 @@
+// this function will return the sum of all the elements present in the link list
+int sumoflinklist( struct node * ptr)
+{
+int sum =0;
+while(ptr!=NULL)
+{
+    sum+=ptr->data;
+    ptr=ptr->next;
+
+}
+return sum;
+}
+
+
+// this function will return max element present in the link list 
+int maxinlist(struct node * ptr )
+{
+    int max = ptr->data;
+ while(ptr!=NULL)
+ {
+     if(ptr->data>max)
+     {
+         max=ptr->data;
+     }
+     ptr=ptr->next;
+ }
+ return max ;
+}
