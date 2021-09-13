@@ -1,0 +1,18 @@
+
+// inserting in a sorted list 
+void sortinsert(struct node * ptr , int key) // pass head and key in the function which you want to insert
+{
+    while(ptr!=NULL)
+    {
+        if(ptr->data>key)
+        {
+            struct node *temp= new node(); // creating new node 
+            temp->data=ptr->data; // swaping the values
+            ptr->data=key; 
+            temp->next=ptr->next; // swaping the pointer locations
+            ptr->next=temp;
+            return ;
+        }
+     ptr=ptr->next;
+    }
+}
