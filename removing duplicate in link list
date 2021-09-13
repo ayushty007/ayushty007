@@ -1,0 +1,21 @@
+// removing duplicate form a link list in cpp 
+
+void delduplicate(struct node * ptr)
+{
+    struct node * q ;  // creating one more pointer which is pointing next to head 
+    q=ptr->next;
+    while(q!=NULL)
+    {
+        if(ptr->data==q->data)  // comparing two nodes
+        {
+            ptr->next= q->next;  // skipping the duplicate 
+            delete  q; // deleting the skipped node 
+            q=ptr->next; // moving forward 
+        }
+        else
+        {
+            ptr=q;
+            q=q->next;
+        }
+    }
+}
