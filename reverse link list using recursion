@@ -1,0 +1,19 @@
+
+struct node *last;
+void revlist(struct node *ptr)
+{
+    if (ptr->next == NULL)
+    {
+        last = ptr;
+        return;
+    }
+    struct node *q = ptr;
+    ptr = ptr->next;
+    revlist(ptr);
+    ptr->next = q;
+    if (q == head)
+    {
+        head->next = NULL;
+        head = last;
+    }
+}
