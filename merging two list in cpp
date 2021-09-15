@@ -1,0 +1,35 @@
+// merging two list using recursion 
+
+void recursivemerge(struct node * ptr) // second function  ( basically sort the list )
+{
+    if(ptr == NULL)
+    {
+        return ;
+    }
+    struct node * q = ptr ;  
+    int temp = ptr->data;
+    while(q!=NULL)
+    {
+        if(temp>q->data)
+        {
+            temp = q->data;
+            q->data=ptr->data;
+            ptr->data=temp;
+        }
+        q=q->next;
+    }  
+        ptr->data=temp;
+        ptr=ptr->next;
+        recursivemerge(ptr);
+    
+}
+void merging( struct node * ptr , struct node * ptr1) // passing two list and concatinating them 
+{
+    while(ptr->next!=NULL)
+    {
+        ptr = ptr->next;
+
+    }
+    ptr->next=ptr1;
+    recursivemerge(head);  // sorting two concatinated list using recursion 
+}
