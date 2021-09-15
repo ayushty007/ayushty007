@@ -1,0 +1,25 @@
+// sorting link list using recusrion in cpp (please do not get manipulated by function name )
+
+void recursivemerge(struct node * ptr)
+{
+    if(ptr == NULL)
+    {
+        return ;
+    }
+    struct node * q = ptr ;
+    int temp = ptr->data;
+    while(q!=NULL)
+    {
+        if(temp>q->data)
+        {
+            temp = q->data;
+            q->data=ptr->data;
+            ptr->data=temp;
+        }
+        q=q->next;
+    }  
+        ptr->data=temp;
+        ptr=ptr->next;
+        recursivemerge(ptr);
+    
+}
