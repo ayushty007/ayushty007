@@ -1,0 +1,26 @@
+
+#include<bits/stdc++.h>
+using namespace std ;
+int main ()
+{
+    int t ;
+    cin>>t;
+    for(int  i =0;i<t;i++)
+    {
+     int s,n ,ans,diff;
+     cin>>n>>s;
+     if(n>=s)
+     {
+         ans = s-0;
+         
+     }
+     else{
+         
+         diff = s-n ;
+         ans = n - diff;
+         
+     }
+     cout<<ans<<endl;
+    }
+    return 0;
+}
