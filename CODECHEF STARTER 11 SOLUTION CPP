@@ -1,0 +1,26 @@
+
+#include<bits/stdc++.h>
+using namespace std ;
+#define ll long long 
+int main ()
+{
+    int t ;
+    cin >>t;
+    for(ll j=0;j<t;j++)
+    {
+     ll n ,s , sum1 ;
+     cin>>n>>s;
+     sum1 = (n*(n+1))/2;
+     sum1= sum1 - s;
+     if(sum1>=1 && sum1 <=n )
+     {
+         cout<<sum1;
+     }
+     else
+     {
+         cout<<"-1";
+     }
+     cout<<endl;
+    }
+    return 0;
+}
