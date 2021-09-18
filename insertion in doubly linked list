@@ -1,0 +1,33 @@
+
+  void insertion(struct node * ptr , int n)
+{
+    struct node *t = new node();
+    t->next = head;
+    t->data=n;
+    t->prev =NULL;
+    head->prev=t;
+    head=t;
+ 
+}
+void insertindex( struct node *ptr , int index , int n)
+{
+    struct node *t =new node ();
+    if(index==1)
+    {
+        insertion(head,n);
+    }
+    else
+    {
+        for(int i =1 ;i<index-1;i++)
+        {
+         ptr=ptr->next;
+        }
+            t->data=n;
+            t->prev=ptr;
+            t->next=ptr->next;
+            ptr->next=t;
+            ptr=t->next;
+            ptr->prev=t;
+        
+    }
+}
