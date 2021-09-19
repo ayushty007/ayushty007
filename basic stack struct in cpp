@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std ;
+struct stack {
+    int size ;
+    int top  ;
+    int *arr ;
+};
+struct stack *s = new stack();
+ void push(int value)
+ {
+     s->top++;
+     s->arr[s->top]=value;
+ }
+ int pop(void)
+ {
+     int val = s->arr[s->top];
+     s->top--;
+     return val;
+ }
+int main ()
+{
+ s->size=10;
+ s->top=-1;
+ s->arr=new int[s->size];
+ push(10);
+ push(20);
+ push(30);
+ cout<<pop();
+ cout<<pop();
+ cout<<pop();
+    return 0;
+}
