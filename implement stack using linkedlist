@@ -1,0 +1,42 @@
+implementing stack using linkedlist 
+#include<bits/stdc++.h>
+using namespace std ;
+struct node {
+    int data ;
+    struct node * next ;
+};
+struct node *top;
+
+void push(int val)
+{
+struct node * t = new node() ;
+t->data=val;
+t->next=top;
+top=t;
+
+}
+int pop(void)
+{
+struct node *ptr = top ;
+int x = top->data; 
+top = top->next;
+ free(ptr);
+ return x;
+}
+
+int main ()
+{
+   push(10);
+   push(20);
+   push(30);
+   push(40);
+   push(50);
+   cout<<pop()<<endl;
+struct node * ptr =top;
+while(ptr!=NULL)
+{
+    cout<<ptr->data<<" ";
+    ptr=ptr->next;
+}
+    return 0;
+}
