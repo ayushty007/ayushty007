@@ -1,0 +1,38 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+stack<int> st;
+int stocks(int val)
+{
+    st.push(val);
+    stack<int>s;
+ while(st.size()!=0)
+ {
+     if(val <st.top())
+     {
+         break ;
+     }
+     else
+     {
+         s.push(st.top());
+         st.pop();
+     }
+ }
+ int size = s.size();
+ while(s.size()!=0)
+ {
+     st.push(s.top());
+     s.pop();
+ }
+ return size ;
+}
+int main()
+{
+    int size = 7;
+    int arr[] = {100, 80, 60, 70, 60, 75, 85};
+    for (int i = 0; i < size; i++)
+    {
+        cout << stocks(arr[i]) << endl;
+    }
+    return 0;
+}
