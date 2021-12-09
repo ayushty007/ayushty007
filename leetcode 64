@@ -1,0 +1,40 @@
+// leetcode 64 solution 
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ld long double
+int row = 2 , col = 3; 
+int minpath(int matrix[2][3] , int dp[2][3], int i , int j)
+{
+  
+  if(i<0 || i >=row || j<0 || j>=col)
+  {
+     return 1e9;
+  }
+  if( i == 1 && j==2 )
+  {
+     return matrix[i][j];
+  }
+  else if(dp[i][j]!=0) return dp[i][j];
+  else 
+  {
+     return dp[i][j] = min(matrix[i][j]+minpath(matrix ,dp , i+1, j) , matrix[i][j]+minpath(matrix,dp , i, j+1) );
+  }
+}
+int main() {
+ios_base::sync_with_stdio(0);
+cin.tie(0); cout.tie(0);
+int matrix[2][3]={1,2,3,4,5,6};
+
+int dp[2][3]={0};
+cout<<minpath(matrix , dp , 0 , 0)<<endl;
+for(int i =0;i<2;i++)
+{
+   for(int j=0;j<3;j++)
+   {
+      cout<<dp[i][j]<<" ";
+   }
+   cout<<"\n";
+}
+return 0; 
+}
