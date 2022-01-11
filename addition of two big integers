@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ld long double
+int main() {
+ios_base::sync_with_stdio(0);
+cin.tie(0); cout.tie(0);
+string s1 ="99993243243242343242341231231232139";
+string s2 ="999329874987324324223492132132132134325435";
+int size = min(s1.length() , s2.length());
+stack<int>s;
+int extra = 0;
+while(size!=0)
+{
+    int x = 0 , y= 0;
+    if(s1.length()>0) x= s1.back();
+    if(s2.length()>0) y = s2.back();
+    int ans = x+y -96 + extra;
+        if(ans <10)
+        {
+            s.push(ans);
+            extra = 0;
+        }
+        else 
+        {
+            s.push(ans%10);
+            extra =1;
+        }
+         
+    s1.pop_back();
+    s2.pop_back();
+size--;
+}
+while(!s1.empty())
+{
+    int ans = s1.back() -48 + extra;
+    
+     if(ans <10)
+        {
+            s.push(ans);
+            extra = 0;
+        }
+        else 
+        {
+            s.push(ans%10);
+            extra =1;
+        }
+   s1.pop_back();
+}
+
+while(!s2.empty())
+{
+    int ans = s2.back() -48 +extra;
+      if(ans <10)
+        {
+            s.push(ans);
+            extra = 0;
+        }
+        else 
+        {
+            s.push(ans%10);
+            extra =1;
+        }
+       s2.pop_back();
+}
+if( extra != 0){
+ s.push(1);
+}
+while(!s.empty())
+{
+    cout<<s.top();
+    s.pop();
+}
+
+return 0; }
