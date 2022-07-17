@@ -1,0 +1,93 @@
+#include<iostream>
+using namespace std;
+class linkedlist
+{
+    struct node{
+       int data ;
+       node *next ;
+     node (int d = 0){
+         data = d ;
+         next =NULL ;
+     }
+        
+    };
+    node *head , *tail ;
+    public :
+    linkedlist(){
+        head =NULL ;
+    }
+    void insertE(int data ){
+        node *newnode = new node(data) ;
+        if(head == NULL) {
+            head = newnode ;
+            tail =  head  ;
+        }
+        else {
+        // insert operation in O(1) 
+         tail->next = newnode ;
+         tail = tail->next ;
+     //     tail->next = NULL ;
+        }
+    }
+  void insertB (int data ){
+       node *newnode = new node(data) ;
+       if( head == NULL ){
+           head = newnode ;
+           tail = head  ;
+           
+       }
+       else {
+           newnode-> next = head ;
+           head = newnode ;
+       }
+  }
+  void deletion(int data )
+  {
+      if(head->data == data  )
+      {
+          head = head->next ;
+          return ;
+      }
+      else {
+          node *current = head  ;
+          while(current->next->data !=  data ){
+              if(current->next == NULL ) return ;
+              current = current->next ;
+          }
+          if(current == NULL ) return ;
+          node *temp = current->next ;
+          temp = temp->next ;
+          current->next = temp ;
+          return ;
+          
+      }
+  }
+   void print(){
+       if(head == NULL ) cout<<"EMPTY" <<endl ;
+       else 
+       {
+           node *curr = head  ;
+           while(curr !=  NULL )
+           {
+               cout<<curr->data <<" " ;
+               curr = curr->next ;
+           }
+           
+       }
+   } 
+};
+int main() {
+linkedlist ll = linkedlist() ;
+ll.insertE(10) ;
+ll.insertE(20) ;
+ll.insertE(30) ;
+ll.insertE(40) ;
+ll.insertB(5) ;
+ll.insertB(1) ;
+//
+ll.print() ;
+cout<<endl ;
+ll.deletion(1) ;
+ll.print() ;
+	return 0;
+}
