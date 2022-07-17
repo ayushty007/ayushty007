@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+class linkedlist
+{
+    struct node{
+       int data ;
+       node *next ;
+     node (int d = 0){
+         data = d ;
+         next =NULL ;
+     }
+        
+    };
+    node *head ;
+    public :
+    linkedlist(){
+        head =NULL ;
+    }
+    void insertE(int data ){
+        node *newnode = new node(data) ;
+        if(head == NULL) head = newnode ;
+        else {
+            node *current = head  ;
+            while(current->next !=  NULL) current = current->next ;
+            current->next = newnode ;
+            
+        }
+    }
+   void print(){
+       if(head == NULL ) cout<<"EMPTY" <<endl ;
+       else 
+       {
+           node *curr = head  ;
+           while(curr !=  NULL )
+           {
+               cout<<curr->data <<" " ;
+               curr = curr->next ;
+           }
+           
+       }
+   } 
+};
+int main() {
+linkedlist ll = linkedlist() ;
+ll.insertE(10) ;
+ll.insertE(20) ;
+ll.insertE(30) ;
+ll.insertE(40) ;
+ll.print() ;
+	return 0;
+}
