@@ -1,0 +1,43 @@
+// kahn's Algo 
+steps 
+1-> count the in-degree array 
+2-> push the element into queue those have indegree value 0 
+3-> increment count each time while poping out 
+4-> push poped out element into ans array 
+5-> decreament the value of associated elements with poped out element
+///////////////////////////////
+code 
+/////////////////////////////
+class Solution {
+public:
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        map<int, vector<int>>adj;
+        vector<int> indegree(numCourses,0);
+        vector<int>res;
+        for(int i=0;i<prerequisites.size();i++){
+            adj[prerequisites[i][1]].push_back(prerequisites[i][0]);
+            indegree[prerequisites[i][0]]++;
+        }
+        queue<int> q;
+        for(int i=0;i<numCourses;i++){
+            if(indegree[i]==0)
+                q.push(i);
+        }
+        while(!q.empty()){
+            int x=q.front();
+            q.pop();
+            res.push_back(x);
+            for(auto u:adj[x]){
+                indegree[u]--;
+                if(indegree[u]==0){
+                    q.push(u);
+                }
+            }
+        }
+        if(res.size()==numCourses)
+            return res;
+        return {};
+        
+        
+    }
+};
