@@ -1,0 +1,31 @@
+ bool isCyclic(int V, vector<int> adj[]) {
+        // code here
+        // here V is the numbers of nodes present and adj[] represent the adj list 
+     vector<int> indegree(V ,0 );
+        for(int i = 0 ; i < V ; i++)
+        {
+            for(auto it : adj[i])
+            {
+                indegree[it]++ ;
+            }
+        }
+        queue<int> q ;
+        for(int i = 0 ; i < V ; i++) 
+        {
+            if(indegree[i] == 0)  q.push(i) ;
+        }
+        
+        while(!q.empty())
+        {
+           int top = q.front() ;
+           q.pop() ;
+           for(auto it : adj[top])
+           {
+               indegree[it]-- ;
+               if(indegree[it] == 0 ) q.push(it) ;
+           }
+        V-- ;   
+        }
+        if(V== 0) return false ;
+        else return true ;
+    }
