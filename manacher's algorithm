@@ -1,0 +1,35 @@
+ // } Driver Code Ends
+class Solution {
+  public:
+    int expnd(string str , int left , int right) 
+    {
+        if(str.empty() || left > right) return 0 ;
+        while(left >=0  && right < str.size()  && str[left] == str[right])
+        {
+            left-- ;
+            right++ ;
+            
+        }
+        return  right - left -1 ;
+    }
+    string longestPalin (string str) {
+                if(str.empty() || str.size() <1) return "";
+                int start = 0;
+                int maxlen= 1 ;
+                int end = 0 ;
+                for(int i = 0 ; i < str.size() ; i++)
+                {
+                    int len1 = expnd(str , i , i ) ; // for odd length
+                    int len2 = expnd(str , i , i+1); // for even length
+                    int len = max (len1 , len2) ;
+                    if(len > end - start && len > maxlen) 
+                    {
+                        maxlen = len ;
+                        start = i - ((len-1)/2) ;
+                        end = i+ (len/2) ;
+                        
+                    }
+                }
+                return str.substr(start , maxlen) ;
+    }
+};
