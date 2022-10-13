@@ -1,0 +1,49 @@
+// This file will contain all the important codes which can be used in graphs 
+
+// There can be multiple components in the graphs so we have to check the each of the vertex 
+
+//BFS breadth First Search Technique 
+
+
+In this kind of traversal we traverse the graph horizontailly or we can also say that level wise travsersal
+
+// Code 
+void bfs(vector<int> &adj[] , int start , vector<bool> vis)
+{
+    queue<int>q ;
+    q.push(start) ;
+    
+    while(!q.empty())
+    {
+        int x = q.front() ;
+        q.pop() ;
+        vis[x] = true ;
+       for(auto it : adj[x])
+       {
+           if(vis[it] == false )
+           {
+               q.push(it) ;
+           }
+           
+       }
+    }
+    return ;
+}
+// time complexcity is O(E+N)
+
+
+// DFS 
+Depth first Search 
+// code 
+
+void dfs(vector<int>adj[] , int node , vector<bool > vis )
+{
+    vis[node] = true ;
+    for(auto it :adj[node] )
+    {
+        if(vis[it] == false )
+        dfs(adj , it , vis ) ;
+    }
+    return ;
+    
+}
