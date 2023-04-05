@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @ayushty007
-- 👀 I’m interested in coding and solving problems
-- 🌱 I’m currently learning DSA 
-- 💞️ I’m looking to collaborate on WEB DEV. PROJECT
+- 👀 I’m interested in Machine Learning and Problem Solving
+- 🌱 I’m currently learning Data Science 
+- 💞️ I’m looking to collaborate on Machine Learning project 
 - 📫 How to reach me ... ayushty786@gmail.com
 
 <!---
